@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: python-sample
+  name: python-sample
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: python-sample
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: python-sample
+    spec:
+      containers:
+      - image: privacr.azurecr.io/python-sample:latest
+        name: python-sample
+        env:
+        - name: API_URL
+          value: http://testupdate.co.in
+        resources: {}
+status: {}
