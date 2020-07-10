@@ -1,6 +1,6 @@
 docker build -f Dockerfile -t  kubepriv.azurecr.io/python-sample:1.1 .
 
-source <(kubectl completion bash
+source <(kubectl completion bash)
 alias k=kubectl
 complete -F __start_kubectl k
 
