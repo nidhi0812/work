@@ -1,0 +1,18 @@
+https://docs.microsoft.com/en-us/azure/aks/azure-disks-dynamic-pv
+
+ az aks get-credentials --resource-group kube101 --name kube101 --subscription e9d8464d-ae28-458f-9b55-6f2c8a460ff1
+
+kubectl get sc
+
+k create service clusterip db-service --tcp=27017:27017 --dry-run -o yaml > 
+
+kubectl run -it --rm --restart=Never nginx --port=8080 --image=nginx sh
+
+db.customers.insert({ name: "Honey", age: 25, cars: [ "Audi R8" ] })
+db.customers.find()
+
+https://docs.microsoft.com/en-us/azure/aks/ingress-basic
+
+https://docs.microsoft.com/en-us/azure/aks/azure-disks-dynamic-pv
+
+az aks update -n kube101 -g kube101--attach-acr pubacr

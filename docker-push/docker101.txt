@@ -1,0 +1,58 @@
+INSTALL DOCKER 
+
+sudo apt update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common 
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+sudo apt update
+apt-cache policy docker-ce
+sudo apt install docker-ce
+sudo systemctl status docker
+
+sudo su - 
+docker version
+
+DOCKER COMMANDS
+
+docker run hello-world
+docker run -itd --name docker-nginx -p 80:80 nginx
+docker ps
+
+docker ps -a
+
+docker stop
+docker rm 
+
+docker images
+
+docker run -itd --name docker-nginx -e test=jnvjfnv -p 80:80 nginx
+
+docker exec -it docker-nginx sh
+
+docker run -d -p 27017:27017 --name mongodb mongo
+
+curl localhost:27017
+
+docker exec -it mongodb bash
+
+db.customers.insert({ name: "Honey", age: 25, cars: [ "Audi R8" ] })
+db.customers.find()
+
+mkdir mongodata
+chmod 777 mongodata
+
+docker run -it -v /mongodata:/data/db --name mongodb -d mongo
+
+docker run -it -v /mongodata:/data/db -p 27017:27017 --name mongodb -d mongo
+
+INSTALL docker-compose
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+
+docker-compose up -d
+
+
+VOLUME ["/data/db"]
+

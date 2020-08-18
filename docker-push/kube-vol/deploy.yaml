@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: db
+  name: db
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: db
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: db
+    spec:
+      containers:
+      - image: mongo:3.6
+        name: db
+        env:
+        - name: TEST
+          value: TESTVALUE
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
+status: {}
+
